@@ -1,20 +1,21 @@
-import { app, BrowserWindow } from "electron";
-import { createServer } from './app.js';
+// Use require for Electron since it's CommonJS
+const { app, BrowserWindow } = require('electron');
+const { createServer } = require('./app.js'); // Assuming your app.js exports createServer function
 
 let mainWindow = null;
 
-function main(){
+function main() {
     const { server, port } = createServer(); 
 
     mainWindow = new BrowserWindow({
         webPreferences: {
-            nodeIntegration:true,
+            nodeIntegration: true,  // Make sure this is enabled for your app to work as expected
         }
     });
-    mainWindow.loadURL(`http://localhost:3000/`);
-    mainWindow.on('close', event => {
+    mainWindow.loadURL(`http://localhost:3000/`); // Adjust the URL if necessary
+    mainWindow.on('close', (event) => {
         mainWindow = null;
-    })
+    });
 };
 
 app.on('ready', main);
