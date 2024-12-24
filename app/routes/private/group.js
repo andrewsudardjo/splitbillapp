@@ -4,10 +4,10 @@ import { verifyToken } from '../../middleware/authMiddleware.js';
 
 const router = Router();
 
-router.get('/new', verifyToken, showNewSplitBillForm);
-router.get('/:id', verifyToken, getGroup);
+router.get('/new',  showNewSplitBillForm);
+router.get('/:id',  getGroup);
 
-router.post('/new', verifyToken, createGroups);
-router.delete('/:groupId/delete' , verifyToken, deleteGroup)
+router.post('/new',  createGroups);
+router.delete('/:groupId/delete' ,  deleteGroup)
 
 export default router;

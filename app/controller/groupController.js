@@ -3,7 +3,7 @@ import Expense from "../model/expenseSchema.js";
 import { calculateFinances } from '../utils/calculateFinances.js';
 
 export const showNewSplitBillForm = (req, res) => {
-    res.render('split/new', { user: req.user });
+    res.render('split/new');
 };
 
 export const createGroups = async (req, res) => {
@@ -18,7 +18,7 @@ export const createGroups = async (req, res) => {
         const group = new Group({
             groupName,
             members: members,    
-            googleID: req.user.googleID
+           // googleID: req.user.googleID
         });
 
         await group.save(); 

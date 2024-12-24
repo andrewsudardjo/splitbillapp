@@ -11,7 +11,7 @@ const groupSchema = new mongoose.Schema({
     },
     googleID: {
         type: String,
-        required: true
+        required: false
     },
     expenses: [{
         type: mongoose.Schema.Types.ObjectId,
